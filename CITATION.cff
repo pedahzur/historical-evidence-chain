@@ -1,0 +1,22 @@
+cff-version: 1.2.0
+message: "If you use these research materials, please cite this repository."
+title: "Historical Evidence Chain: Salem Witch Trials Pilot"
+type: software
+authors:
+  - family-names: Pedahzur
+    given-names: Ami
+repository-code: "https://github.com/pedahzur/historical-evidence-chain"
+version: 0.1.0
+date-released: 2026-08-02
+keywords:
+  - historical methods
+  - generative AI
+  - provenance
+  - source criticism
+  - Salem witch trials
+  - human coding
+  - research reproducibility
+abstract: >-
+  Draft article materials, research instruments, controlled vocabularies,
+  and implementation schemas for evaluating AI-mediated transformations
+  across a historical evidence chain.

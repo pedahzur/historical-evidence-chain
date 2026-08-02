@@ -1,0 +1,381 @@
+vocabulary_id: SAL-CV-1.0
+associated_codebook: SAL-CB-0.3
+status: pilot-working
+principle: >-
+  Codes describe what the cited source or a declared scholarly operation
+  supports. They do not establish the truth of a historical allegation.
+
+vocabularies:
+  operation_class:
+    transcription: Produce a source-faithful transcription from supplied images.
+    extraction: Produce structured source-bound observations from a transcription.
+    audit: Evaluate one explicit claim against its cited evidence without rewriting it.
+
+  transcription_operation_status:
+    complete: Every supplied source was processed and no omission prevents use of the output.
+    partial: Some supplied material was processed, but identified omissions or limitations remain.
+    cannot_transcribe: The supplied material does not permit a usable transcription.
+
+  extraction_operation_status:
+    complete: The supplied transcription was processed for all requested extraction objects.
+    partial: Extraction was possible for only part of the supplied material or requested scope.
+    cannot_extract: The supplied materials do not permit a usable source-bound extraction.
+
+  audit_operation_status:
+    complete: Every submitted in-scope claim received an audit decision and all expected sources were checked.
+    partial: At least one in-scope claim or expected source could not be fully checked; limitations are recorded.
+    cannot_assess: The supplied materials do not permit any reliable audit decision in the declared scope.
+
+  document_workflow_status:
+    draft: Document record is being assembled and is not ready for coding.
+    in_coding: Initial transcription or extraction work is in progress.
+    in_review: Initial work is complete and under review.
+    approved: Required review or adjudication is complete for internal use.
+    released: An approved record has been included in a declared release.
+    withdrawn: The record is retained for provenance but excluded from active use.
+
+  transcription_status:
+    draft: Transcription is editable and has not completed review.
+    reviewed: Transcription has completed the declared review procedure.
+    adjudicated: Competing readings have been resolved through a preserved adjudication.
+    superseded: A successor transcription version exists; this version remains immutable.
+
+  entity_status:
+    provisional: Identity resolution remains open.
+    resolved: Identity has been resolved to the standard required by the protocol.
+    merged: This record has been consolidated into another preserved entity record.
+    split: This record has been replaced by two or more preserved entity records.
+    withdrawn: This record is retained for provenance but excluded from active use.
+
+  entity_decision_type:
+    create_entity: Proposes creation of a new canonical entity anchor.
+    link_mention: Proposes linking a source mention to an entity.
+    preferred_label: Proposes or revises an entity's preferred display label.
+    entity_type: Proposes or revises an entity's controlled type.
+    authority_match: Proposes a match to a named external authority record.
+    merge: Proposes consolidation of two or more preserved entity anchors.
+    split: Proposes replacement of one entity anchor with two or more preserved anchors.
+    status_change: Proposes a controlled entity lifecycle-status change.
+    other: Another documented entity-resolution decision; note required.
+
+  historical_claim_workflow_status:
+    draft: Historical Claim is editable and has not been submitted for audit.
+    submitted: Historical Claim is frozen and awaiting or undergoing audit.
+    audited: Historical Claim has at least one completed audit decision in the declared audit pass.
+    superseded: A successor Historical Claim exists; this version remains immutable.
+    withdrawn: Historical Claim is retained for provenance but excluded from active use.
+
+  model_run_status:
+    queued: Run has been registered but has not started.
+    running: Run has started and has not reached a terminal state.
+    succeeded: Run completed and its output was captured.
+    failed: Run ended without a usable completed output; an error note is required.
+    cancelled: Run was intentionally stopped before completion.
+
+  validation_status:
+    open: Validation decision awaits review or adjudication.
+    reviewed: Validation decision has completed review without a superseding adjudication.
+    adjudicated: Validation decision has been resolved through a preserved adjudication.
+    superseded: A successor validation record exists; this version remains immutable.
+
+  analytical_record_status:
+    draft: Record is editable and has not been submitted.
+    submitted: Record is frozen for review, comparison, or audit.
+    reviewed: Record has completed the declared review procedure.
+    audited: Record has completed the applicable audit procedure.
+    adjudicated: Record has been selected or synthesized through a preserved adjudication.
+    superseded: A successor version exists; this version remains immutable.
+    withdrawn: Record is retained for provenance but excluded from active use.
+
+  audit_integrity_finding_status:
+    open: Finding awaits review or resolution.
+    confirmed: Review confirmed the integrity failure; remediation may remain open.
+    dismissed: Review determined that the recorded condition is not an integrity failure.
+    resolved: The integrity failure was remediated without rewriting the original finding.
+    superseded: A successor finding version exists; this version remains immutable.
+
+  adjudication_status:
+    open: Adjudication has been created but no resolution has been recorded.
+    resolved: Adjudicator selected or synthesized a resolution.
+    unresolved: Adjudicator intentionally retained unresolved alternatives.
+    superseded: A successor adjudication version exists; this version remains immutable.
+
+  epistemic_status:
+    source_stated: Explicitly expressed in the supplied document.
+    normalized: Declared transformation of source-stated content; source form and rule are retained.
+    inferred: Reasoned conclusion not explicitly stated; requires source basis, rationale, and certainty.
+
+  certainty:
+    high: Clear reading and classification with no material alternative.
+    medium: Preferred reading or classification with a credible alternative.
+    low: Tentative proposal based on weak, damaged, or highly ambiguous evidence.
+    not_assessed: Certainty was not assessed; permitted only for imported legacy data.
+
+  uncertainty_reason:
+    visual_reading: Handwriting, image quality, or physical condition affects the reading.
+    source_damage: Loss, cropping, fading, or obstruction affects the evidence.
+    segmentation: Document, image, passage, or event boundaries are uncertain.
+    entity_boundary: The extent of an entity mention is uncertain.
+    identity_resolution: Two or more mentions may or may not denote the same entity.
+    ontology_boundary: More than one controlled category is plausible.
+    role_classification: The participant's document-local role is ambiguous.
+    normalization: Competing normalization rules or results remain.
+    inference: An inferential step has weak or competing support.
+    provenance: The exact evidence location or source witness is uncertain.
+    procedural_interpretation: The legal/procedural stage is ambiguous.
+    insufficient_context: Supplied context does not permit a decision.
+    other: Another documented reason; free-text note required.
+
+  missingness:
+    not_present: The document does not state the value.
+    illegible: Content is present but unreadable.
+    unclear: Content is readable but classification is unresolved.
+    not_applicable: The field does not apply.
+    not_checked: Coding is incomplete.
+    withheld: Value is not released because of access or rights restrictions.
+
+  passage_type:
+    body: Passage is in the main documentary text.
+    heading: Passage is a heading, title, or comparable prefatory label.
+    margin: Passage is in a margin and is not an endorsement.
+    endorsement: Passage is an endorsement or filing annotation associated with the document.
+    signature: Passage is a signature, mark, or signature block.
+    other: Passage has another documented type; note required.
+
+  image_quality:
+    good: Image quality permits reliable inspection throughout, aside from minor local defects.
+    mixed: Image quality varies materially across regions or pages; affected areas are documented.
+    poor: Widespread quality problems materially limit inspection, although some usable evidence remains.
+    unusable: Image does not permit reliable visual inspection for the declared operation.
+    not_assessed: Image quality has not yet been assessed.
+
+  boundary_basis:
+    catalog_metadata: Supplied repository or catalog metadata supports the document–source boundary.
+    physical_continuity: Physical layout, material continuity, or source sequence supports the boundary.
+    textual_continuity: Textual beginning, ending, formula, or narrative continuity supports the boundary.
+    editorial_decision: A declared project editorial decision establishes the working boundary.
+    unclear: Available evidence does not permit the boundary basis to be resolved.
+    other: Another documented boundary basis; note required.
+
+  transcription_block_type:
+    body: Block is part of the main documentary text.
+    heading: Block is a heading, title, or comparable prefatory label.
+    margin: Block is written in a margin and is not an endorsement.
+    interlinear: Block is inserted between lines of the main text.
+    endorsement: Block is an endorsement or filing annotation associated with the document.
+    signature: Block is a signature, mark, or signature block.
+    other: Block has another documented type; note required.
+
+  creator_type:
+    human: Transcription was created through a human coding record and has no model-generated substantive content.
+    model: Transcription was generated through a model run and has no human-generated substantive content in that version.
+    hybrid: Human and model work both contributed substantive content to this transcription version; both creator routes are retained.
+
+  normalization_basis:
+    declared_rule: A project rule identified by version and rule name.
+    document_internal: An alias, expansion, or equivalence explicitly supported within the document.
+    catalog_metadata: Supplied repository/catalog metadata; retained separately from source text.
+    authority_record: A named external authority record with persistent identifier.
+    cross_document_evidence: Another cited project document supports the normalization.
+    coder_rationale: A documented provisional editorial judgment.
+    other: Another explicit, cited basis; note required.
+
+  document_type:
+    complaint: Complaint or accusation initiating or supporting process.
+    warrant: Authority or direction to act; not evidence that the action occurred.
+    warrant_return: Return reporting execution or outcome of a warrant.
+    examination: Record of formal examination.
+    deposition: Sworn or formally recorded statement.
+    testimony: Record explicitly presenting testimony.
+    summons: Direction to appear; not evidence of appearance or testimony.
+    indictment: Formal accusation; not evidence of conviction.
+    recognizance: Recorded obligation or bond.
+    petition: Request addressed to an authority.
+    mittimus: Warrant or order of commitment.
+    court_order: Explicit order of a court.
+    court_record: Court record not more specifically classified.
+    jury_verdict: Record explicitly stating a jury verdict.
+    execution_record: Record explicitly concerning execution of a sentence or writ.
+    correspondence: Letter or comparable communication.
+    account: Narrative or administrative account.
+    copy_or_extract: Source explicitly presented as a copy or extract.
+    composite: Record containing multiple document units not safely separated.
+    other: Supported type outside the vocabulary; note required.
+    unknown: Available evidence does not support classification.
+
+  entity_type:
+    person: Named or unnamed human participant.
+    group: Informal or described collective.
+    organization: Organized non-governmental collective.
+    court: Court or judicial body.
+    government_body: Governmental body other than a court.
+    place: Geographic or built location.
+    document: Document referenced as an entity.
+    legal_office: Civil or legal office.
+    other: Supported type outside the vocabulary; note required.
+    unknown: Entity type cannot be resolved.
+
+  participant_role:
+    author_or_creator: Author or creator in this document.
+    scribe: Scribe or recorder in this document.
+    signatory: Person whose signature or mark executes this document.
+    addressee: Explicit addressee.
+    complainant: Person making or presenting a complaint.
+    accused_person: Person presented as accused.
+    deponent: Person explicitly giving a deposition.
+    examinee: Person being examined.
+    examiner: Person conducting an examination.
+    witness: Person explicitly witnessing or testifying; listing alone is insufficient.
+    juror: Person explicitly serving as juror.
+    judge_or_magistrate: Person acting as judge or magistrate.
+    clerk: Person acting as clerk.
+    constable: Person acting as constable.
+    marshal: Person acting as marshal.
+    sheriff: Person acting as sheriff.
+    jailer: Person acting as jailer.
+    minister: Person acting as minister.
+    physician: Person acting as physician.
+    interpreter: Person acting as interpreter.
+    surety: Person acting as surety.
+    petitioner: Person making or joining a petition.
+    named_third_party: Named person without a more specific supported role.
+    victim_or_afflicted_person: Historical record's role/language; not validation of a supernatural explanation.
+    official_other: Supported official role outside this list; note required.
+    other: Supported role outside this list; note required.
+    unclear: Role is present but cannot be classified.
+
+  event_participant_role:
+    actor: Entity performs the action represented by the event.
+    target: Entity is the person, group, place, or object toward which the event action is directed.
+    declarant: Entity makes the statement, deposition, complaint, allegation, or other declaration represented by the event.
+    authority: Entity issues, authorizes, or presides over the official action represented by the event.
+    subject: Entity is the subject of the event when actor, target, declarant, and authority do not accurately describe the source-stated participation.
+    other: Another source-supported event role; note required.
+    unclear: Participation is supported but the event role cannot be classified.
+
+  event_type:
+    allegation_made: An allegation is reported as made.
+    complaint_filed: A complaint is reported as filed or presented.
+    warrant_issued: A warrant is reported as issued.
+    summons_issued: A summons is reported as issued.
+    service_or_execution_reported: Service or execution of process is explicitly reported.
+    arrest_reported: An arrest is explicitly reported.
+    custody_or_commitment: Custody or commitment is explicitly reported.
+    examination_held: An examination is explicitly reported as held.
+    statement_or_deposition_given: A statement or deposition is explicitly reported as given.
+    indictment_returned: An indictment is explicitly reported as returned.
+    arraignment_or_plea: Arraignment or plea is explicitly reported.
+    trial_proceeding: A trial proceeding is explicitly reported.
+    verdict_reported: A verdict is explicitly reported.
+    sentence_reported: A sentence is explicitly reported.
+    release_or_bail: Release or bail is explicitly reported.
+    petition_submitted: A petition is explicitly reported as submitted.
+    death_reported: A death is explicitly reported.
+    other_procedural_action: Another explicit procedural action; note required.
+    other: Another supported event; note required.
+    unknown: Event exists but type cannot be resolved.
+
+  relation_type:
+    named_in: Entity is explicitly named in a document.
+    participates_in: Entity explicitly participates in an event.
+    authored_or_signed: Entity explicitly authored or signed a document.
+    addressed_to: Document or communication is explicitly addressed to an entity.
+    accuses_or_alleges_against: Claimant explicitly accuses or alleges against a target.
+    testifies_or_states_about: Speaker explicitly testifies or states something about a target.
+    orders_action_by: Authority explicitly orders an actor to act.
+    action_directed_at: Explicit action is directed at an entity.
+    held_office: Person explicitly holds an office.
+    located_at: Entity or event is explicitly located at a place.
+    explicit_kinship: Source explicitly states kinship; surname alone is insufficient.
+    explicit_association: Source explicitly states another association; co-occurrence is insufficient.
+    document_copy_of: Document is explicitly or declared editorially a copy of another.
+    document_part_of: Document is explicitly or declared editorially part of another.
+    other: Another explicit supported relation; note required.
+
+  direction:
+    directed: The relation has a source-supported subject-to-object direction.
+    undirected: The relation is symmetric or the source supports association without an ordered direction.
+
+  claim_type:
+    allegation: Attributed allegation, including supernatural allegations.
+    procedural: Proposition about a legal or administrative action.
+    identity_or_role: Proposition about identity, office, or document-local role.
+    relation: Proposition asserting a relation.
+    date_or_place: Proposition locating something in time or place.
+    transcription_reading: Proposition about the reading of source text.
+    analytical: Other proposition submitted for evidence audit.
+
+  polarity:
+    affirmed: The proposition is presented without source-level negation.
+    negated: The source explicitly negates the proposition.
+    mixed: The passage contains materially different affirmed and negated components that cannot be separated without losing the source formulation.
+    unclear: Available wording does not permit reliable polarity classification.
+
+  modality:
+    asserted: The source presents the proposition categorically in the attributed voice.
+    reported: The proposition is presented as another person's statement, report, or attributed account.
+    possible: The proposition is explicitly qualified as possible, conditional, uncertain, or hypothetical.
+    ordered: The proposition expresses an order, direction, requirement, or obligation rather than a completed action.
+    unclear: Available wording does not permit reliable modality classification.
+
+  dependency_type:
+    supports: Supporting claim supplies affirmative evidence for the dependent Historical Claim.
+    qualifies: Supporting claim limits, conditions, or narrows the dependent Historical Claim.
+    contradicts: Supporting claim supplies evidence inconsistent with the dependent Historical Claim.
+    normalization: Dependency records a declared normalization needed by the dependent Historical Claim.
+    identity_resolution: Dependency records an identity-resolution step needed by the dependent Historical Claim.
+    procedural_sequence: Dependency records a source-supported ordering or distinction between procedural stages.
+
+  audit_decision:
+    supported: Cited source directly supports the full claim.
+    partially_supported: Source supports only part of the claim or a weaker formulation.
+    unsupported: Supplied source does not adequately support the claim.
+    contradicted: Supplied source contains evidence inconsistent with the claim.
+    not_assessable: Damage, missing material, or insufficient context prevents a decision.
+
+  audit_issue_type:
+    incorrect_transcription: Transcription does not faithfully represent the supplied image.
+    wrong_span: Cited span does not support the claim.
+    missing_span: Claim lacks a required evidence span.
+    entity_misidentification: Mention-to-entity resolution is unsupported.
+    role_overreach: Role exceeds what the document supports.
+    event_overreach: Event or procedural stage exceeds what the document supports.
+    relation_overreach: Relation exceeds explicit evidence.
+    normalization_error: Normalization is unsupported or undocumented.
+    date_error: Date transcription or normalization is unsupported.
+    negation_error: Claim reverses or loses source negation.
+    modality_error: Claim overstates possibility, obligation, or reported status.
+    attribution_error: Claim is assigned to the wrong or invented claimant.
+    procedural_stage_conflation: Distinct legal stages are collapsed.
+    external_knowledge_leakage: Claim relies on evidence outside the supplied source set.
+    compound_claim: Claim combines propositions requiring separate decisions.
+    insufficient_context: Supplied context cannot support a decision.
+    other: Another documented issue.
+
+  audit_integrity_finding_type:
+    wrong_source: The referenced source witness does not match the source required by the audited record.
+    broken_locator: The source, page, region, or line locator is absent, malformed, out of range, or does not resolve.
+    quote_mismatch: The recorded exact quote does not match the cited immutable transcription span.
+    invalid_reference: A referenced project identifier is missing, has the wrong object type, or does not resolve.
+    versioning_error: An object cites the wrong transcription/version or violates append-only or supersession rules.
+    vocabulary_error: A controlled field contains an unavailable value or uses a controlled value contrary to its definition.
+    other: Another documented evidence-chain integrity failure; explanation required.
+
+  disagreement_reason:
+    visual_reading: Coders disagree about visible text.
+    segmentation: Coders disagree about a unit boundary.
+    entity_boundary: Coders disagree about mention extent.
+    identity_resolution: Coders disagree about entity linkage.
+    ontology_boundary: Coders disagree about controlled category.
+    role_classification: Coders disagree about document-local role.
+    normalization: Coders disagree about a normalization.
+    inference: Coders disagree about an inferential step.
+    provenance: Coders disagree about the evidence link.
+    procedural_interpretation: Coders disagree about legal/procedural interpretation.
+    other: Another documented disagreement.
+
+  rights_status:
+    public: Public redistribution confirmed for the intended artifact.
+    restricted: Holding repository or permission terms restrict redistribution.
+    permission_required: Redistribution requires permission not yet documented.
+    unknown: Rights/access review is incomplete.

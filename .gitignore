@@ -1,0 +1,38 @@
+# Operating systems and editors
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~
+.idea/
+.vscode/
+
+# Credentials and local configuration
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+
+# Python, R, and notebooks
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.Rhistory
+.RData
+.ipynb_checkpoints/
+
+# Build and analysis artifacts
+work/
+tmp/
+dist/
+build/
+coverage/
+*.log
+
+# Archival and research data are local by default.
+data/**
+!data/README.md
+restricted/
+private/
